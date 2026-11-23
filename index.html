@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Zenthra Solutions</title>
+<link rel="icon" id="fav" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=Figtree:wght@400;500;600&display=swap">
+<style>
+:root{--bg:#f3f6fc;--panel:#fff;--line:#d3dcf0;--text:#0a1230;--muted:#4d5c86;--ac:#1a6fb0;--head:rgba(243,246,252,.92);box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#060b1a;--panel:#0c1530;--line:#1c2a50;--text:#e8efff;--muted:#93a3cc;--ac:#4cb8f2;--head:rgba(6,11,26,.9)}}
+:root[data-theme="dark"]{--bg:#060b1a;--panel:#0c1530;--line:#1c2a50;--text:#e8efff;--muted:#93a3cc;--ac:#4cb8f2;--head:rgba(6,11,26,.9)}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*::before,*::after{box-sizing:inherit}
+[hidden]{display:none!important}
+body{margin:0;background:var(--bg);color:var(--text);font:400 1rem/1.65 Figtree,system-ui,-apple-system,"Segoe UI",sans-serif}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--head);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);z-index:10}
+h1,h2,h3{font-family:"Bricolage Grotesque","Trebuchet MS",system-ui,sans-serif;line-height:1.1;letter-spacing:-.02em;margin:0 0 .5em}
+h2{font-size:clamp(1.6rem,3.5vw,2.3rem)}
+p{margin:0 0 1rem}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--ac);outline-offset:3px;border-radius:4px}
+.wrap{width:min(1120px,100% - 2.5rem);margin-inline:auto}
+.muted{color:var(--muted)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--head);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;justify-content:space-between;min-height:64px}
+.brand{display:flex;align-items:center;gap:.7rem;text-decoration:none;font:800 1.15rem "Bricolage Grotesque","Trebuchet MS",sans-serif}
+.brand img,.foot img{width:36px;height:36px;border-radius:50%}
+#links{display:flex;gap:.25rem}
+#links a{padding:.45rem .95rem;border-radius:8px;text-decoration:none;font-weight:500;color:var(--muted)}
+#links a:hover{color:var(--text)}
+#links a[aria-current]{color:var(--text);background:var(--panel);box-shadow:inset 0 0 0 1px var(--line)}
+#menu{display:none;background:none;border:1px solid var(--line);border-radius:8px;color:var(--text);padding:.45rem .8rem;font:inherit;cursor:pointer}
+.btn{display:inline-block;padding:.8rem 1.5rem;border-radius:10px;border:0;font:600 1rem Figtree,system-ui,sans-serif;text-decoration:none;cursor:pointer;background:linear-gradient(135deg,#3fb1f0,#6d7cf3);color:#04112a}
+.btn:hover{filter:brightness(1.08)}
+.btn.alt{background:transparent;color:var(--text);box-shadow:inset 0 0 0 1px var(--line)}
+.row{display:flex;flex-wrap:wrap;gap:.8rem}
+.band{position:relative;overflow:hidden}
+.band::before{content:"";position:absolute;inset:0;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:56px 56px;opacity:.55;-webkit-mask-image:linear-gradient(#000,transparent 90%);mask-image:linear-gradient(#000,transparent 90%)}
+.hero{position:relative;display:grid;grid-template-columns:1.15fr .85fr;gap:2rem;align-items:center;padding:5rem 0 4.5rem}
+.hero h1{font-size:clamp(2.5rem,6vw,4.5rem);font-weight:800}
+.lead{font-size:1.2rem;color:var(--muted);max-width:42ch}
+.hero .lead{margin-bottom:1.8rem}
+#typed{color:var(--ac);font-weight:600;border-right:2px solid currentColor;padding-right:3px}
+.z{width:min(340px,80%);justify-self:center;filter:drop-shadow(0 0 28px rgba(63,177,240,.42))}
+.sec{padding:3.5rem 0}
+.head{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:1rem;margin-bottom:1.5rem}
+.head h2{margin:0}
+.head a{color:var(--ac);font-weight:600}
+.statement{max-width:30ch}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:1.25rem}
+.card{display:flex;flex-direction:column;align-items:flex-start;gap:.5rem;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:1.6rem;text-decoration:none}
+a.card:hover{border-color:var(--ac)}
+.card h3{font-size:1.35rem;margin:0}
+.card p{margin:0;color:var(--muted)}
+.tag{font-size:.85rem;font-weight:600;color:var(--ac);border:1px solid var(--line);border-radius:99px;padding:.05rem .75rem}
+.small{font-size:.9rem;color:var(--muted);margin-top:auto;padding-top:.6rem}
+.tabs{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1.2rem}
+[role=tab]{background:var(--panel);border:1px solid var(--line);color:var(--muted);border-radius:99px;padding:.5rem 1.2rem;font:600 1rem Figtree,system-ui,sans-serif;cursor:pointer}
+[role=tab][aria-selected=true]{background:linear-gradient(135deg,#3fb1f0,#6d7cf3);border-color:transparent;color:#04112a}
+[role=tabpanel]{max-width:56ch;font-size:1.15rem}
+.cta{background:var(--panel);border-block:1px solid var(--line);text-align:center;padding:4rem 0}
+.cta p{color:var(--muted)}
+.page{padding:3.5rem 0 4rem}
+.page h1{font-size:clamp(2rem,5vw,3.2rem);font-weight:800}
+.steps{list-style:none;padding:0;margin:2rem 0 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.25rem;counter-reset:s}
+.steps li{counter-increment:s;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:1.4rem}
+.steps li::before{content:counter(s);display:block;font:800 2rem "Bricolage Grotesque",sans-serif;color:var(--ac);margin-bottom:.3rem}
+.steps b{display:block;margin-bottom:.2rem}
+.crumbs{margin-bottom:1.5rem;color:var(--muted)}
+.crumbs a{color:var(--ac)}
+.split{display:grid;grid-template-columns:.8fr 1.2fr;gap:2rem;align-items:start}
+.split h1{font-size:2rem;margin:.4rem 0}
+.checks{list-style:none;padding:0}
+.checks li{position:relative;padding-left:1.8rem;margin:.55rem 0}
+.checks li::before{content:"✓";position:absolute;left:0;color:var(--ac);font-weight:700}
+form{display:grid;gap:1rem}
+label{display:grid;gap:.35rem;font-weight:600}
+input,select,textarea{width:100%;background:var(--panel);color:var(--text);border:1px solid var(--line);border-radius:10px;padding:.75rem .9rem;font:400 1rem Figtree,system-ui,sans-serif}
+textarea{resize:vertical}
+.notice{color:var(--ac);font-weight:500}
+footer{border-top:1px solid var(--line);padding:2.5rem 0}
+.foot{display:flex;flex-wrap:wrap;gap:1.5rem;align-items:center;justify-content:space-between}
+.foot nav{display:flex;gap:1.2rem;flex-wrap:wrap}
+.foot a{color:var(--muted);text-decoration:none}
+.foot a:hover{color:var(--text)}
+#top{position:fixed;right:1rem;bottom:calc(1rem + env(safe-area-inset-bottom,0px));width:46px;height:46px;border-radius:50%;border:0;background:linear-gradient(135deg,#3fb1f0,#6d7cf3);color:#04112a;font-size:1.3rem;font-weight:700;cursor:pointer}
+@media(max-width:760px){
+.hero{grid-template-columns:1fr;padding:2.5rem 0 3rem}
+.z{order:-1;width:120px;justify-self:start}
+.split{grid-template-columns:1fr}
+#menu{display:block}
+#links{display:none;position:absolute;left:0;right:0;top:100%;flex-direction:column;background:var(--bg);padding:.75rem 1.25rem 1rem;border-bottom:1px solid var(--line)}
+#links.open{display:flex}
+}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap bar">
+    <a class="brand" href="#home"><img id="logo" alt="" width="36" height="36" src="data:image/png;base64,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"><span>Zenthra Solutions</span></a>
+    <button id="menu" aria-expanded="false" aria-controls="links">Menu</button>
+    <nav id="links" aria-label="Main">
+      <a href="#home">Home</a><a href="#services">Services</a><a href="#about">About</a><a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main" tabindex="-1">
+
+<section data-view="home">
+  <div class="band">
+    <div class="wrap hero">
+      <div>
+        <h1>Digital solutions that move your business forward.</h1>
+        <p class="lead">Zenthra Solutions designs and builds <span id="typed" aria-hidden="true"></span><span class="sr">websites, web apps, dashboards and brands</span> for growing businesses.</p>
+        <div class="row"><a class="btn" href="#services">See our services</a><a class="btn alt" href="#contact">Talk to us</a></div>
+      </div>
+      <svg class="z" viewBox="230 230 565 565" role="img" aria-label="Zenthra Z mark">
+        <defs><linearGradient id="zg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3fb1f0"/><stop offset="1" stop-color="#6d7cf3"/></linearGradient></defs>
+        <polygon fill="url(#zg)" points="245,245 778,245 778,332 335,690 778,690 778,778 245,778 245,690 690,332 245,332"/>
+      </svg>
+    </div>
+  </div>
+  <div class="sec"><div class="wrap">
+    <h2 class="statement">Technology that works the way your business does.</h2>
+    <p class="lead">We start with how you sell, serve and report, then build the website, app or dashboard around it. Fixed scopes, plain language, and one team from first sketch to launch.</p>
+    <a class="btn alt" href="#about">About Zenthra</a>
+  </div></div>
+  <div class="sec" style="padding-top:0"><div class="wrap">
+    <div class="head"><h2>What we build</h2><a href="#services">See all services</a></div>
+    <div class="cards" id="home-cards"></div>
+  </div></div>
+  <div class="sec" style="padding-top:0"><div class="wrap">
+    <h2>Why teams choose Zenthra</h2>
+    <div class="tabs" role="tablist" aria-label="Why Zenthra">
+      <button role="tab" id="t1" aria-selected="true" aria-controls="p1">Dependable</button>
+      <button role="tab" id="t2" aria-selected="false" aria-controls="p2">Complete</button>
+      <button role="tab" id="t3" aria-selected="false" aria-controls="p3">Flexible</button>
+    </div>
+    <p role="tabpanel" id="p1" aria-labelledby="t1">Fixed scope and dates. You know what you’re getting, and when, before we start.</p>
+    <p role="tabpanel" id="p2" aria-labelledby="t2" hidden>Design, build, hosting and support from one team, so nothing falls between suppliers.</p>
+    <p role="tabpanel" id="p3" aria-labelledby="t3" hidden>Start with a single page or a full platform. What we build grows as your business does.</p>
+  </div></div>
+  <div class="cta"><div class="wrap">
+    <h2>Tell us what you’re building.</h2>
+    <p>Share a few details and we’ll reply with a plan and a quote.</p>
+    <a class="btn" href="#contact">Start a project</a>
+  </div></div>
+</section>
+
+<section data-view="services" hidden>
+  <div class="wrap page">
+    <h1>Services</h1>
+    <p class="lead">Everything you need to get online and run better, from a first website to a full platform.</p>
+    <div class="cards" id="all-cards"></div>
+  </div>
+</section>
+
+<section data-view="detail" hidden><div class="wrap page" id="detail"></div></section>
+
+<section data-view="about" hidden>
+  <div class="wrap page">
+    <h1>About Zenthra Solutions</h1>
+    <p class="lead">We’re a digital studio that helps businesses get online and run better. We build websites, web apps and analytics dashboards that are fast, clear and easy to look after.</p>
+    <p class="lead">Our approach is simple: understand the business first, keep the scope honest, and hand over work you can manage without us.</p>
+    <h2 style="margin-top:2.5rem">How a project runs</h2>
+    <ol class="steps">
+      <li><b>Discover</b>We learn how your business works and agree what success looks like.</li>
+      <li><b>Design</b>You see layouts and flows before anything is built.</li>
+      <li><b>Build</b>We develop in short stages and show progress as we go.</li>
+      <li><b>Launch and support</b>We go live, train your team and stay on call.</li>
+    </ol>
+  </div>
+</section>
+
+<section data-view="contact" hidden>
+  <div class="wrap page">
+    <h1>Contact us</h1>
+    <p class="lead">Tell us about your project and we’ll reply by email.</p>
+    <div class="split" style="grid-template-columns:1.2fr .8fr">
+      <form id="form">
+        <label>Full name<input name="name" autocomplete="name" required></label>
+        <label>Email<input name="email" type="email" autocomplete="email" required></label>
+        <label>Service<select name="svc" id="svc"></select></label>
+        <label>Message<textarea name="msg" rows="5" required></textarea></label>
+        <div><button class="btn" type="submit">Send message</button></div>
+        <p class="notice" id="sent" role="status" hidden>Your email app should open with the message ready. If it doesn’t, write to us directly at the address below.</p>
+      </form>
+      <div class="card">
+        <h3>Email</h3>
+        <p><a id="mail" href="#contact"></a></p>
+        <p class="muted">Include a few lines about your business and what you need. The more we know, the more useful our first reply.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <a class="brand" href="#home"><img id="flogo" alt="" width="36" height="36"><span>Zenthra Solutions</span></a>
+    <nav aria-label="Footer"><a href="#home">Home</a><a href="#services">Services</a><a href="#about">About</a><a href="#contact">Contact</a></nav>
+    <span class="muted">© 2026 Zenthra Solutions</span>
+  </div>
+</footer>
+<button id="top" aria-label="Back to top" hidden>↑</button>
+
+<script>
+const EMAIL = "hello@zenthrasolutions.com";
+const S = [
+ {id:"web-design",name:"Website design and build",tag:"Websites",time:"2–4 weeks",blurb:"Fast, mobile-ready sites that explain what you do and bring in enquiries.",long:"A website built around your customers’ questions. We plan the pages, write clear copy with you, design for phones first and launch on reliable hosting.",items:["Custom design matched to your brand","Mobile-first, fast-loading pages","Contact forms and enquiry tracking","SEO setup so people can find you"]},
+ {id:"web-apps",name:"Custom web apps",tag:"Software",time:"6–12 weeks",blurb:"Internal tools and customer portals that replace spreadsheets and manual steps.",long:"When off-the-shelf software doesn’t fit, we build the tool your team actually needs: booking systems, portals, order tracking and more.",items:["Secure logins and user roles","An admin area your team can run","Connects to the tools you already use","Documentation and handover"]},
+ {id:"analytics",name:"Analytics dashboards",tag:"Data",time:"3–6 weeks",blurb:"Sales and performance reports in one place, updated automatically.",long:"See sales, stock, customers and costs on one screen. We connect your data, design the reports you check every day and keep them easy to read.",items:["Sales and revenue reports","Charts you can filter by date and product","Scheduled report emails","Export to Excel or PDF"]},
+ {id:"ecommerce",name:"Online stores and marketplaces",tag:"Commerce",time:"4–8 weeks",blurb:"Sell online with payments, orders and stock handled for you.",long:"From a small shop to a marketplace with many sellers, we build the storefront, checkout and back office so you can focus on selling.",items:["Product catalogue and search","Secure checkout and payments","Order and stock management","Seller dashboards for marketplaces"]},
+ {id:"branding",name:"Branding and identity",tag:"Brand",time:"1–3 weeks",blurb:"Logo, colors and style guide so your business looks the same everywhere.",long:"A clear identity that carries across your website, social media and documents, with a guide so anyone on your team can use it correctly.",items:["Logo and icon set","Color and type palette","Social media and email templates","Brand guide you can share"]},
+ {id:"support",name:"Care and maintenance plans",tag:"Support",time:"Monthly plan",blurb:"Updates, backups and fixes so your site stays online and secure.",long:"We keep what we build healthy. Monthly plans cover updates, monitoring and small changes, with a real person to contact when something needs fixing.",items:["Security updates and backups","Uptime monitoring","Content changes each month","Priority support"]}
+];
+const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
+const TITLES = {home:"Home",services:"Services",about:"About",contact:"Contact"};
+let quote = "";
+
+const card = s => `<a class="card" href="#${s.id}"><span class="tag">${s.tag}</span><h3>${s.name}</h3><p>${s.blurb}</p><span class="small">Typical timeline: ${s.time}</span></a>`;
+$("#home-cards").innerHTML = S.slice(0,3).map(card).join("");
+$("#all-cards").innerHTML = S.map(card).join("");
+$("#svc").innerHTML = "<option>General enquiry</option>" + S.map(s => `<option>${s.name}</option>`).join("");
+$("#mail").textContent = EMAIL; $("#mail").href = "mailto:" + EMAIL;
+$("#flogo").src = $("#logo").src; $("#fav").href = $("#logo").src;
+
+function detail(s){
+  $("#detail").innerHTML = `<nav class="crumbs" aria-label="Breadcrumb"><a href="#services">Services</a> / ${s.name}</nav>
+  <div class="split"><aside class="card"><span class="tag">${s.tag}</span><h1>${s.name}</h1>
+  <p class="muted">Typical timeline<br><b style="color:var(--text)">${s.time}</b></p>
+  <div class="row"><button class="btn" data-quote="${s.id}">Request a quote</button><a class="btn alt" href="#services">All services</a></div></aside>
+  <div><p class="lead">${s.long}</p><h2>What’s included</h2><ul class="checks">${s.items.map(i => `<li>${i}</li>`).join("")}</ul></div></div>`;
+}
+
+function route(){
+  let n = location.hash.slice(1) || "home";
+  const s = S.find(x => x.id === n);
+  if (!s && !TITLES[n]) n = "home";
+  if (s) detail(s);
+  $$("[data-view]").forEach(v => v.hidden = v.dataset.view !== (s ? "detail" : n));
+  $$("#links a").forEach(a => a.getAttribute("href") === "#" + (s ? "services" : n) ? a.setAttribute("aria-current","page") : a.removeAttribute("aria-current"));
+  $("#links").classList.remove("open"); $("#menu").setAttribute("aria-expanded","false");
+  document.title = (s ? s.name : TITLES[n]) + " | Zenthra Solutions";
+  if (n === "contact" && quote) { $("#svc").value = quote; quote = ""; }
+  window.scrollTo(0,0);
+}
+addEventListener("hashchange", route); route();
+
+$("#menu").onclick = () => { const o = $("#links").classList.toggle("open"); $("#menu").setAttribute("aria-expanded", o); };
+document.addEventListener("click", e => {
+  const b = e.target.closest("[data-quote]");
+  if (b) { quote = S.find(x => x.id === b.dataset.quote).name; location.hash = "contact"; }
+});
+
+$$("[role=tab]").forEach(t => t.addEventListener("click", () => {
+  $$("[role=tab]").forEach(x => x.setAttribute("aria-selected", x === t));
+  $$("[role=tabpanel]").forEach(p => p.hidden = p.id !== t.getAttribute("aria-controls"));
+}));
+
+$("#form").addEventListener("submit", e => {
+  e.preventDefault();
+  const f = new FormData(e.target);
+  const body = `${f.get("msg")}\n\n${f.get("name")} (${f.get("email")})`;
+  $("#sent").hidden = false;
+  location.href = `mailto:${EMAIL}?subject=${encodeURIComponent("Enquiry: " + f.get("svc"))}&body=${encodeURIComponent(body)}`;
+});
+
+const words = ["websites","web apps","dashboards","brands"], el = $("#typed");
+if (matchMedia("(prefers-reduced-motion:reduce)").matches) { el.textContent = words[0]; el.style.borderRight = "0"; }
+else { let w = 0, i = 0, del = false;
+  (function tick(){
+    const t = words[w]; el.textContent = t.slice(0,i);
+    if (!del && i === t.length) { del = true; return setTimeout(tick,1400); }
+    if (del && i === 0) { del = false; w = (w + 1) % words.length; }
+    i += del ? -1 : 1; setTimeout(tick, del ? 45 : 90);
+  })(); }
+
+addEventListener("scroll", () => { $("#top").hidden = scrollY < 400; }, {passive:true});
+$("#top").onclick = () => scrollTo({top:0});
+</script>
+</body>
+</html>
